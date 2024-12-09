@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Menu</title>
+    <style>
+        /* Basic reset */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set up the body and ensure the nav fills the screen */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        /* Navigation bar container */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation links container */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none; /* Hide the menu by default */
+            }
+
+            .nav-links.active {
+                display: flex; /* Show the menu when active */
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <!-- Logo -->
+        <div class="logo">My Company</div>
+
+        <!-- Menu Toggle Icon for mobile -->
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    // Get the menu toggle button and the nav links container
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    // Toggle the menu visibility when the menu icon is clicked
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
